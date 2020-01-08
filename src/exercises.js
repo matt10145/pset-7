@@ -3,7 +3,12 @@ function commonEnd(a, b) {
     return false;
   }
 
-  // write your code here
+  if (a[0] === b[0] || a[a.length - 1] === b[b.length - 1]) {
+      return true;
+  } else {
+      return false;
+  }
+
 }
 
 function endsMeet(values, n) {
