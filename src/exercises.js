@@ -32,7 +32,41 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
-// write your code here
+    if (!numbers || numbers.length < 1) {
+        return undefined;
+    }
+
+    numbers.forEach((number) => {
+        if (isNaN(number)) {
+            return undefined;
+        } else {
+            // intentionally empty
+        }
+    });
+
+    let max = 0;
+    let min = 0;
+    let UPPER_LIMIT = Number.MAX_SAFE_INTEGER;
+    let LOWER_LIMIT = Number.MIN_SAFE_INTEGER;
+
+    numbers.forEach((number) => {
+        if (number > max) {
+            max = number;
+        } else {
+            // intentionally empty
+        }
+    });
+
+    numbers.forEach((number) => {
+        if (number < min) {
+            min = number;
+        } else {
+
+        }
+    });
+
+    let difference = max - min;
+    return difference;
 }
 
 function max(number) {
