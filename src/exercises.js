@@ -12,11 +12,23 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
+    let newArray = [];
     if (!values || values.length < n || n < 0) {
-        return false;
+        return newArray;
     }
 
-    // use two for loops to append and preprend
+    if (n === 0) {
+        return values;
+    } else {
+        for (let index = 0; index < n; index++) {
+            newArray.push(values[index]);
+        }
+
+        for (let index = values.length - n; index < values.length; index++) {
+            newArray.push(values[index]);
+        }
+        return newArray;
+    }
 }
 
 function difference(numbers) {
