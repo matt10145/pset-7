@@ -3,12 +3,8 @@ function commonEnd(a, b) {
         return false;
     }
 
-    if (a[0] === b[0] || a[a.length - 1] === b[b.length - 1]) {
-          return true;
-    } else {
-          return false;
-    }
-
+    if (a[0] === b[0] || a[a.length - 1] === b[b.length - 1]) return true;
+        else return false;
 }
 
 function endsMeet(values, n) {
@@ -32,22 +28,14 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
-    if (!numbers || numbers.length < 1) {
+    if (!numbers || numbers.length < 1 || numbers.some(isNaN)) {
         return undefined;
+    } else {
+        // intentionally empty
     }
 
-    numbers.forEach((number) => {
-        if (isNaN(number)) {
-            return undefined;
-        } else {
-            // intentionally empty
-        }
-    });
-
-    let max = 0;
-    let min = 0;
-    let UPPER_LIMIT = Number.MAX_SAFE_INTEGER;
-    let LOWER_LIMIT = Number.MIN_SAFE_INTEGER;
+    let max = numbers[0];
+    let min = numbers[0];
 
     numbers.forEach((number) => {
         if (number > max) {
@@ -61,7 +49,7 @@ function difference(numbers) {
         if (number < min) {
             min = number;
         } else {
-
+            // intentionally empty
         }
     });
 

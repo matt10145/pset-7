@@ -1,5 +1,7 @@
 # Problem Set 7
 
+**By Matthew Hui**
+
 It's time to put your skills to the test. This problem set focuses on programming in JavaScript. More specifically, it focuses on creating and manipulating arrays within functions.
 
 ## Getting Started
