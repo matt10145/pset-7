@@ -57,20 +57,71 @@ function difference(numbers) {
     return difference;
 }
 
-function max(number) {
-// write your code here
+function max(numbers) {
+    if (!numbers) {
+        return undefined;
+    } else if (numbers.some(isNaN)) {
+        return undefined;
+    } else if (numbers.length < 3 || numbers.length % 2 == 0) {
+        return undefined;
+    } else {
+        let newArray = [numbers[0], numbers[(numbers.length - 1)/2], numbers[numbers.length - 1]];
+        let largest = Math.max.apply(Math, newArray);
+
+        return largest;
+    }
 }
 
 function middle(values) {
-// write your code here
+    let newArray = [];
+    if (!values) {
+        return newArray;
+    } else if (values.length < 3 || values.length % 2 == 0) {
+        return newArray;
+    } else {
+        let middle = (values.length - 1)/2;
+        newArray = [values[middle - 1], values[middle], values[middle + 1]]; // could use .push but this is smoother in my opinion
+        return newArray;
+    }
 }
 
 function increasing(numbers) {
-// write your code here
+    if (!numbers) {
+        return false;
+    } else if (numbers.length < 3 || numbers.some(isNaN)) {
+        return false;
+    } else {
+        // intentionally empty
+    }
+    numbers.forEach((number) => {
+        if (number % 1 !== 0) {
+            return false;
+        } else {
+            // intentionally empty
+        }
+    });
+
+    let condition = true;
+    for (let i = 0; i < numbers.length; i++) {
+        let currentNumber = numbers[i];
+        if (numbers[i + 1] - currentNumber === 1 && currentNumber - numbers[i - 1] === 1) {
+            return true;
+        } else {
+            condition = false;
+        }
+    }
+
+    if (!condition) return false;
 }
 
 function everywhere(values, x) {
-// write your code here
+    if (!values || !x) {
+        return false;
+    } else if (values.length < 1) {
+        return false;
+    }
+
+    
 }
 
 function consecutive(numbers) {
@@ -79,7 +130,6 @@ function consecutive(numbers) {
 
 function balance(numbers) {
 // write your code here
-console.log("test");
 }
 
 function clumps(values) {
