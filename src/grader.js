@@ -366,17 +366,16 @@ function testClumps() {
  */
 
 function isEqual(expected, actual) {
-  if (expected && !actual || !expected && actual) {
-    console.log("one's defined, one's not");
+  if (!expected && !actual) {
+    return true;
+  } else if (expected && !actual || !expected && actual) {
     return false;
   } else if (expected.length !== actual.length) {
-    console.log("different lengths");
     return false;
   }
 
   for (let i = 0; i < expected.length; i++) {
     if (expected[i] !== actual[i]) {
-      console.log(expected[i] + " !== " + actual[i]);
       return false;
     }
   }
