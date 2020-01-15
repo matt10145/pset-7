@@ -119,14 +119,48 @@ function everywhere(values, x) {
         return false;
     } else if (values.length < 1) {
         return false;
+    } else {
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] === x) {
+				
+            }
+        }
     }
 
     
 }
 
 function consecutive(numbers) {
-// write your code here
+	if (!numbers) {
+		return false;
+	} else if (numbers.length < 3 || numbers.some(isNaN)) {
+		return false;
+	} else {
+		// intentionally empty
+	}
+	numbers.forEach((number) => {
+		if (number % 1 !== 0) {
+			return false;
+		} else {
+			// intentionally empty
+		}
+	});
+
+	let condition = true;
+	for (let i = 0; i < numbers.length - 1; i++) { 
+		if (numbers[i] % 2 === 0 && numbers[i + 1] % 2 === 0 && numbers[i + 2] % 2 === 0) {
+			return true; 
+		} else if (numbers[i] % 2 !== 0 && numbers[i + 1] % 2 !== 0 && numbers[i + 2] % 2 !== 0) {
+			return true;
+		} else {
+			condition = false;
+		}
+	}
+
+	if (!condition) return false;
 }
+
+// why did subtracting 1 from numbers.length make consecutive work?
 
 function balance(numbers) {
 // write your code here
@@ -136,8 +170,9 @@ function clumps(values) {
 // write your code here
 }
 
-/*
-* Exports all functions for use in external grader.js file. Do not modify.
+/** 
+ * Exports all functions for use in external grader.js file. Do not 
+ * modify.
 */
 
 module.exports = {
