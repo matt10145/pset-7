@@ -163,11 +163,58 @@ function consecutive(numbers) {
 // why did subtracting 1 from numbers.length make consecutive work?
 
 function balance(numbers) {
-// write your code here
+	if (!numbers) {
+		return false;
+	} else if (numbers.length < 2 || numbers.some(isNaN)) {
+		return false;
+	} else {
+		// intentionally empty
+	}
+
+	numbers.forEach((number) => {
+		if (number % 1 !== 0) {
+			return false;
+		} else {
+			// intentionally empty
+		}
+	});
+
+	let midpoint;
+	if (numbers.length % 2 !== 0) {
+		return false;
+	} else if (numbers.length % 2 == 0) {
+		midpoint = (numbers.length)/2
+	} 
+	firstHalf = numbers.slice(0, midpoint);
+	secondHalf = numbers.slice(midpoint);
+
+	let firstSum;
+	let secondSum;
+
+	firstHalf.forEach((number) => {
+		firstSum += number;
+	});
+
+	secondHalf.forEach((number) => {
+		secondSum += number;
+	});
+
+	if (firstSum === secondSum) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
+// this won't work for some reason
+// the arrays with three elements expect true but I give it false
+
 function clumps(values) {
-// write your code here
+	if (!values) {
+		return -1;
+	} else {
+		// intentionally empty
+	}
 }
 
 /** 
