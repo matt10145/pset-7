@@ -3,8 +3,6 @@
 **By Matthew Hui**
 
 TODO:
-- endsMeet 
-	- fails all the 0 cases (expected an empty array, but I instead returned the original)
 - everywhere
 - balance
 - clumps
