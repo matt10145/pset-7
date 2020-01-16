@@ -2,6 +2,13 @@
 
 **By Matthew Hui**
 
+TODO:
+- endsMeet 
+	- fails all the 0 cases (expected an empty array, but I instead returned the original)
+- everywhere
+- balance
+- clumps
+
 It's time to put your skills to the test. This problem set focuses on programming in JavaScript. More specifically, it focuses on creating and manipulating arrays within functions.
 
 ## Getting Started
