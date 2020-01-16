@@ -14,7 +14,7 @@ function endsMeet(values, n) {
     }
 
     if (n === 0) {
-        return values;
+        return newArray;
     } else {
         for (let index = 0; index < n; index++) {
             newArray.push(values[index]);
@@ -199,7 +199,7 @@ function balance(numbers) {
 		secondSum += number;
 	});
 
-	if (firstSum === secondSum) {
+	if (firstSum == secondSum) {
 		return true;
 	} else {
 		return false;
@@ -213,14 +213,25 @@ function clumps(values) {
 	if (!values) {
 		return -1;
 	} else {
-		// intentionally empty
-	}
+        let counter = 0;
+        for (let i = 1; i < values.length; i++) {
+            if (values[i] === values[i + 1]) {
+                continue;
+            } else if (values[i] !== values[i + 1] && values[i] === values[i - 1]) {
+                counter++;
+            } else {
+                // intentionally empty
+            }
+        }
+
+        return counter;
+    }
 }
 
-/** 
+/*
  * Exports all functions for use in external grader.js file. Do not 
  * modify.
-*/
+ */
 
 module.exports = {
     commonEnd,
