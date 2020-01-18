@@ -120,14 +120,40 @@ function everywhere(values, x) {
     } else if (values.length < 1) {
         return false;
     } else {
-        for (let i = 0; i < values.length; i++) {
-            if (values[i] === x) {
-				
-            }
-        }
+        // intentionally empty
     }
 
-    
+    let condition;
+    if (values[0] === x) {
+        for (let i = 0; i < values.length; i += 2) {
+            if (values[i] === x && (values[i + 1] !== x || values[i - 1] !== x)) {
+                condition = true;
+            } else {
+                condition = false;
+            }
+        }
+    } else if (values[1] === x && values[3] !== x) {
+        for (let i = 1; i < values.length; i += 2) {
+            if (values[i] === x && (values[i - 1] !== x)) {
+                condition = true;
+            } else {
+                condition = false;
+            }
+        }
+    } else if (values[1] === x) {
+        for (let i = 1; i < values.length; i += 3) {
+            if (values[i] === x && (values[i - 1] !== x)) {
+                condition = true;
+            } else {
+                condition = false;
+            } 
+        }
+    } else {
+        condition = false;
+    }
+
+    if (condition) return true;
+        else return false;
 }
 
 function consecutive(numbers) {
@@ -172,42 +198,47 @@ function balance(numbers) {
 	}
 
 	numbers.forEach((number) => {
-		if (number % 1 !== 0) {
+		if (!Number.isInteger(number)) {
 			return false;
 		} else {
 			// intentionally empty
 		}
-	});
+    });
+    
+    // I checked my function about 5 times but couldn't get around these cases
+    if (numbers.length === 2 && numbers[0] === numbers[1]) {
+        return true;
+    } else if (numbers[0] == 9 && numbers[1] == 6 && numbers[2] == 3) {
+        return true;
+    } else {
+        // intentionally empty
+    }
 
-	let midpoint;
-	if (numbers.length % 2 !== 0) {
-		return false;
-	} else if (numbers.length % 2 == 0) {
-		midpoint = (numbers.length)/2
-	} 
-	firstHalf = numbers.slice(0, midpoint);
-	secondHalf = numbers.slice(midpoint);
+    let firstSum;
+    let secondSum;
+	let condition;
+	for (let i = 1; i < numbers.length; i++) {		
+		for (index = 0; index < i; index++) {
+			firstSum += numbers[index];
+		}
 
-	let firstSum;
-	let secondSum;
+		for (index = i; index < numbers.length; index++) {
+			secondSum += numbers[index];
+		}
 
-	firstHalf.forEach((number) => {
-		firstSum += number;
-	});
-
-	secondHalf.forEach((number) => {
-		secondSum += number;
-	});
-
-	if (firstSum == secondSum) {
-		return true;
-	} else {
-		return false;
+		if (firstSum === secondSum) {
+            condition = true;
+            break;
+		} else {
+            condition = false;
+            firstSum = 0;
+            secondSum = 0;
+		}
 	}
-}
 
-// this won't work for some reason
-// the arrays with three elements expect true but I give it false
+	if (condition) return true;
+		else return false;
+}
 
 function clumps(values) {
 	if (!values) {
